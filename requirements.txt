@@ -1,0 +1,5 @@
+datetime==4.1.1
+requests==2.11.1
+whois==0.7
+tld==0.7.6
+python-dateutil==2.6.0
