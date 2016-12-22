@@ -1,8 +1,16 @@
 import requests
+import argparse
 import whois
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from tld import get_tld
+
+
+def parse_arguments():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('file_name')
+    file_name = parser.parse_args().file_name
+    return file_name
 
 
 def load_urls4check(filepath):
@@ -59,6 +67,7 @@ def go_throught_all_sites(sites_list):
 
 
 if __name__ == '__main__':
-    sites = load_urls4check('sites.txt')
+    file_name = parse_arguments()
+    sites = load_urls4check(file_name)
     print('Мониторинг сайтов\n')
     go_throught_all_sites(sites)
