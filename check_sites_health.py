@@ -21,10 +21,7 @@ def load_urls4check(filepath):
 
 def is_server_respond_with_200(url):
         site_request = requests.get(url)
-        if site_request.status_code is 200:
-            return True
-        else:
-            return False
+        return bool(site_request.status_code is 200)
 
 
 def get_domain_expiration_date(domain_name):
@@ -33,17 +30,15 @@ def get_domain_expiration_date(domain_name):
     one_month = relativedelta(months=+1)
     month_later = datetime.today() + one_month
     expiration_date = whois_info.expiration_date
-    if expiration_date > month_later:
-        return True
-    else:
-        return False
+    return bool(expiration_date > month_later)
 
-
-# whois не получает информацию по поддоменам .gov.ru / .edu.ru - запрашиваем gov.ru / edu.ru
 
 def check_edu_and_gov_tlds(tld_string):
+    # whois не получает информацию по поддоменам .gov.ru / .edu.ru
+    # запрашиваем: по gov.ru
     if '.gov.ru' in tld_string:
         return 'gov.ru'
+    # и edu.ru
     if '.edu.ru' in tld_string:
         return 'edu.ru'
     return tld_string
