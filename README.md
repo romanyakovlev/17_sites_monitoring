@@ -15,6 +15,6 @@ pip install -r requirements.txt
 Запускаем скрипт
 
 ```sh
-python3 check_sites_health.py file.txt
+python3 check_sites_health.py path_to_file
 ```
 где path_to_file -  путь до вашего файла, передаваемого в качестве аргумента.
