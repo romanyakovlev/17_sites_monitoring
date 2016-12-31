@@ -20,8 +20,8 @@ def load_urls4check(filepath):
 
 
 def is_server_respond_with_200(url):
-        site_request = requests.get(url)
-        return bool(site_request.status_code is 200)
+    site_request = requests.get(url)
+    return bool(site_request.status_code is 200)
 
 
 def get_domain_expiration_date(domain_name):
@@ -46,7 +46,7 @@ def check_edu_and_gov_tlds(tld_string):
 
 def output_information(site_url, is_respond, is_paid):
     print("'{}' статус:\nstatus code 200 - {}\nоплачен на месяц "
-             "вперед - {}\n".format(site_url, 'да' if is_respond else 'нет', 'да' if is_respond else 'нет'))
+          "вперед - {}\n".format(site_url, 'да' if is_respond else 'нет', 'да' if is_respond else 'нет'))
 
 
 def get_site_info(site_url):
